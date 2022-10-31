@@ -21,7 +21,11 @@
 <link href="{{URL::asset('assets/css/color.css')}}" rel="stylesheet">
 
 <link rel="stylesheet" href="{{URL::asset('assets/css/responsive.css')}}">
-
+        @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
 
 
 <!--<div class="se-pre-con"></div>-->
@@ -54,7 +58,7 @@
 						   <form method="POST" action="{{ route('login') }}">
                               @csrf
 							<div class="form-group">
-							  <input id="input" id="email" type="email" class=" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus/>
+							  <input id="input" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus/>
 							  <label class="control-label" for="input">Email</label><i class="mtrl-select"></i>
 
                                @error('email')
@@ -66,7 +70,7 @@
 
 							</div>
 							<div class="form-group">
-							  <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password" required autocomplete="current-password"/>
+							  <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password"/>
 
 							  <label class="control-label" for="input">Password</label><i class="mtrl-select"></i>
 
@@ -103,7 +107,7 @@
 
                             {{-- name --}}
 							<div class="form-group">
-							  <input id="name" type="text" class=" @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus/>
+							  <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus/>
 							  <label class="control-label" for="input">Name</label><i class="mtrl-select"></i>
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -115,7 +119,7 @@
 
                             {{-- email --}}
 							<div class="form-group">
-							  <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email"/>
+							  <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email"/>
 
 							  <label class="control-label" for="input">Email</label><i class="mtrl-select"></i>
                                 @error('email')
@@ -127,7 +131,7 @@
 
                             {{-- Password --}}
 							<div class="form-group">
-							  <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password" required autocomplete="new-password"/>
+							  <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password"/>
 							  <label class="control-label" for="input">Password</label><i class="mtrl-select"></i>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -139,7 +143,7 @@
 
                            {{-- Confirm Password --}}
 							<div class="form-group">
-							  <input id="password-confirm" type="password"name="password_confirmation" required autocomplete="new-password"/>
+							  <input id="password-confirm" type="password"class="form-control" name="password_confirmation" required autocomplete="new-password"/>
 							  <label class="control-label" for="input">Confirm Password</label><i class="mtrl-select"></i>
 							</div>
 
@@ -147,24 +151,21 @@
 							<div class="form-radio">
 							  <div class="radio">
 								<label>
-								  <input type="radio" name="radio" checked="checked"/><i class="check-box"></i>Male
+								  <input type="radio" name="gender" checked="checked" value="1"/><i class="check-box"></i>Male
 								</label>
 							  </div>
 							  <div class="radio">
 								<label>
-								  <input type="radio" name="radio"/><i class="check-box"></i>Female
+								  <input type="radio" name="gender" value="2"/><i class="check-box"></i>Female
 								</label>
 							  </div>
 							</div>
 
-							<div class="checkbox">
-							  <label>
-								<input type="checkbox" checked="checked"/><i class="check-box"></i>Accept Terms & Conditions ?
-							  </label>
-							</div>
-							<a href="{{ route('login') }}" title="" class="already-have">Already have an account</a>
+
+
 							<div class="submit-btns">
 								<button class="mtr-btn " type="submit"><span>Register</span></button>
+                                <a href="{{ route('login') }}" title="" class="already-have">Already have an account ?</a>
 							</div>
 						</form>
                             </div>

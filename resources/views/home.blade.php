@@ -112,7 +112,7 @@
 								<div class="central-meta">
 									<div class="new-postbox">
 										<figure>
-											<img src="{{URL::asset('assets/images/resources/admin2.jpg')}}" alt="">
+											<img  style="height:60px;width:60px" src="{{ asset('assets/Users_Img/'.Auth::user()->img)}}" alt="">
 										</figure>
 										<div class="newpst-input">
 											<form method="post">
@@ -238,7 +238,7 @@
 											<ul class="we-comet">
 												<li>
 													<div class="comet-avatar">
-														<img src="{{URL::asset('assets/images/resources/comet-1.jpg')}}" alt="">
+														<img style="height:45px;width:45px" src="{{ asset('assets/Users_Img/'.Auth::user()->img)}}" alt="">
 													</div>
 													<div class="we-comment">
 														<div class="coment-head">
@@ -297,7 +297,7 @@
 												</li>
 												<li class="post-comment">
 													<div class="comet-avatar">
-														<img src="{{URL::asset('assets/images/resources/comet-1.jpg')}}" alt="">
+														<img style="height:45px;width:45px" src="{{ asset('assets/Users_Img/'.Auth::user()->img)}}" alt="">
 													</div>
 													<div class="post-comt-box">
 														<form method="post">
@@ -444,7 +444,7 @@
 												</li>
 												<li class="post-comment">
 													<div class="comet-avatar">
-														<img src="{{URL::asset('assets/images/resources/comet-2.jpg')}}" alt="">
+														<img style="height:45px;width:45px" src="{{ asset('assets/Users_Img/'.Auth::user()->img)}}" alt="">
 													</div>
 													<div class="post-comt-box">
 														<form method="post">
@@ -595,7 +595,7 @@
 												</li>
 												<li class="post-comment">
 													<div class="comet-avatar">
-														<img src="{{URL::asset('assets/images/resources/comet-2.jpg')}}" alt="">
+														<img style="height:45px;width:45px" src="{{ asset('assets/Users_Img/'.Auth::user()->img)}}" alt="">
 													</div>
 													<div class="post-comt-box">
 														<form method="post">

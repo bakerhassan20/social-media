@@ -1,7 +1,7 @@
 <!-- main-header opened -->
 	<div class="topbar stick">
 		<div class="logo">
-			<a title="" href="newsfeed.html"><img src="{{URL::asset('assets/images/logo.png')}}" alt=""></a>
+			<a title="" href="{{ route('home') }}"><img src="{{URL::asset('assets/images/logo.png')}}" alt=""></a>
 		</div>
 
 		<div class="top-area">
@@ -205,18 +205,18 @@
 						<a href="#" title=""><i class="ti-check"></i>English</a>
 						<a href="#" title="">Arabic</a>
 						<a href="#" title="">Dutch</a>
-						<a href="#" title="">French</a>
+						<a href="" title="">French</a>
 					</div>
 				</li>
 			</ul>
 			<div class="user-img" style="margin-right:25px">
-				<img src="{{URL::asset('assets/images/resources/admin.jpg')}}" alt="">
+				<img style="height:45px;width:45px" src="{{ asset('assets/Users_Img/'.Auth::user()->img)}}" alt="">
 				<span class="status f-online"></span>
 				<div class="user-setting">
-					<a href="#" title=""><span class="status f-online"></span>online</a>
+					<a href="" title=""><span class="status f-online"></span>online</a>
 					<a href="#" title=""><span class="status f-away"></span>away</a>
 					<a href="#" title=""><span class="status f-off"></span>offline</a>
-					<a href="#" title=""><i class="ti-user"></i> view profile</a>
+                    <a  href="{{route('profile')}}"><i class="ti-user"></i>view profile</a>
 					<a href="#" title=""><i class="ti-pencil-alt"></i>edit profile</a>
 					<a href="#" title=""><i class="ti-target"></i>activity log</a>
 					<a href="#" title=""><i class="ti-settings"></i>account setting</a>
@@ -228,7 +228,6 @@
                     </form>
 				</div>
 			</div>
-
 		</div>
 	</div><!-- topbar -->
 <!-- /main-header -->

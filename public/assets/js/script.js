@@ -17,7 +17,7 @@ jQuery(document).ready(function($) {
 //--- user setting dropdown on topbar
 $('.user-img').on('click', function() {
 	$('.user-setting').toggleClass("active");
-	return false;
+
 });
 
 //--- side message box
@@ -402,6 +402,66 @@ jQuery(".post-comt-box textarea").on("keydown", function(event) {
 });//document ready end
 
 
+
+
+  //live porfile image
+
+var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
+
+ //live cover image
+  var loadFilecover = function(event) {
+    var output2 = document.getElementById('output2');
+    output2.src = URL.createObjectURL(event.target.files[0]);
+    output2.onload = function() {
+      URL.revokeObjectURL(output2.src) // free memory
+    }
+  };
+
+
+   //live post image
+   var loadFilepost = function(event) {
+    var output3 = document.getElementById('output3');
+    output3.src = URL.createObjectURL(event.target.files[0]);
+    output3.onload = function() {
+      URL.revokeObjectURL(output3.src) // free memory
+    }
+  };
+
+
+/*
+
+  $(function () {
+    $('.like').click(function () { likeFunction(this); });
+    $('.dislike').click(function () { dislikeFunction(this);});
+  });
+
+
+  function likeFunction(caller) {
+    var postId = caller.parentElement.getAttribute('postid');
+    console.log(postId);
+    $.ajax({
+        type: "POST",
+        url: "rate.php",
+        data: 'Action=LIKE&PostID=' + postId,
+        success: function () {}
+    });
+  }
+  function dislikeFunction(caller) {
+    var postId = caller.parentElement.getAttribute('postid');
+    $.ajax({
+        type: "POST",
+        url: "rate.php",
+        data: 'Action=DISLIKE&PostID=' + postId,
+        success: function () {}
+    });
+  }
+ */
 
 
 
