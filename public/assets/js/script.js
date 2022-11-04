@@ -6,7 +6,7 @@ jQuery(document).ready(function($) {
   $('.top-area > .setting-area > li').on("click",function(){
 	$(this).siblings().children('div').removeClass('active');
 	$(this).children('div').addClass('active');
-	return false;
+
   });
 //------- remove class active on body
   $("body *").not('.top-area > .setting-area > li').on("click", function() {
@@ -23,11 +23,11 @@ $('.user-img').on('click', function() {
 //--- side message box
 $('.friendz-list > li, .chat-users > li').on('click', function() {
 	$('.chat-box').addClass("show");
-	return false;
+
 });
 	$('.close-mesage').on('click', function() {
 		$('.chat-box').removeClass("show");
-		return false;
+
 	});
 
 //------ scrollbar plugin
@@ -48,7 +48,7 @@ $('.friendz-list > li, .chat-users > li').on('click', function() {
 // delete notifications
 $('.notification-box > ul li > i.del').on("click", function(){
     $(this).parent().slideUp();
-	return false;
+
   });
 
 /*--- socials menu scritp ---*/
@@ -77,7 +77,7 @@ $('.notification-box > ul li > i.del').on("click", function(){
 		} else {
 		  $(list).find("li").slideDown();
 		}
-		return false;
+
 	  })
 	  .keyup( function () {
 		$(this).change();
@@ -282,7 +282,7 @@ $(function() {
 	  $("span.main-menu").on("click", function(){
 	     $(".side-panel").addClass('active');
 		  $(".theme-layout").addClass('active');
-		  return false;
+
 	  });
 
 	  $('.theme-layout').on("click",function(){
@@ -296,12 +296,12 @@ $(function() {
 // login & register form
 	$('button.signup').on("click", function(){
 		$('.login-reg-bg').addClass('show');
-		return false;
+
 	  });
 
 	  $('.already-have').on("click", function(){
 		$('.login-reg-bg').removeClass('show');
-		return false;
+
 	  });
 
 //----- count down timer
@@ -394,7 +394,7 @@ jQuery(".post-comt-box textarea").on("keydown", function(event) {
 		$(this).parent().siblings().removeClass('active');
 		$(this).parent().children('ul').slideToggle();
 		$(this).parent().toggleClass('active');
-		return false;
+
 	});
 
 
@@ -434,34 +434,7 @@ var loadFile = function(event) {
   };
 
 
-/*
 
-  $(function () {
-    $('.like').click(function () { likeFunction(this); });
-    $('.dislike').click(function () { dislikeFunction(this);});
-  });
-
-
-  function likeFunction(caller) {
-    var postId = caller.parentElement.getAttribute('postid');
-    console.log(postId);
-    $.ajax({
-        type: "POST",
-        url: "rate.php",
-        data: 'Action=LIKE&PostID=' + postId,
-        success: function () {}
-    });
-  }
-  function dislikeFunction(caller) {
-    var postId = caller.parentElement.getAttribute('postid');
-    $.ajax({
-        type: "POST",
-        url: "rate.php",
-        data: 'Action=DISLIKE&PostID=' + postId,
-        success: function () {}
-    });
-  }
- */
 
 
 

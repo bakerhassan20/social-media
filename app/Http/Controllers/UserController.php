@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\User;
 use App\Http\trait\ImageTrait;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Friends;
 use Illuminate\Support\Facades\Storage;
 use Hash;
 
@@ -14,7 +16,7 @@ class UserController extends Controller
     use ImageTrait;
 
     public function index(){
-    
+
         $posts = Post::all()->where('user_id',Auth::user()->id)->sortByDesc('id');
 
         return view('user.profile',compact('posts'));
@@ -61,13 +63,13 @@ class UserController extends Controller
         'old_password' =>'required',
         'new_password' =>'required|confirmed|min:6',
         ]
-          ,[  
+          ,[
             'new_password.min' => 'new password must be 6 at least',
             'new_password.confirmed' => 'new password confirmed not match',
 
 
           ]);
-        
+
         $current_user=Auth::User();
 
         if(Hash::check($request->old_password,$current_user->password)){
@@ -81,10 +83,24 @@ class UserController extends Controller
         return back();
         }
         else {
-     
+
         return back()->with('error','old password dose not matched');
         }
 
+        }
+
+
+        public function user_profile($id){
+
+          $user = User::findOrFail($id);
+
+          $UserFriend =Friends::where(['user_id'=>Auth::user()->id,'friend_id'=>$user->id])->orWhere(['user_id'=>$user->id,'friend_id'=>Auth::user()->id])->first();
+
+          $posts = Post::all()->where('user_id',$id)->sortByDesc('id');
+          $friends1 = Friends::Where('user_id','=',$user->id)->where('friend_id','!=',Auth::user()->id)->get('friend_id');
+          $friends2 =Friends::where('friend_id','=',$user->id)->where('user_id','!=',Auth::user()->id)->get('user_id');
+
+          return view('user.user_profile',compact('posts','user','UserFriend','friends1','friends2'));
         }
 
 
