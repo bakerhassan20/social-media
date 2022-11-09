@@ -19,17 +19,16 @@
 
 		<!-- main-content -->
         	@include('layouts.sidebar')
-		<div class="main-content app-content">
-			@include('layouts.main-header')
+		        <div class="main-content app-content">
+			    @include('layouts.main-header')
 				@yield('page-header')
 				@yield('content')
+                 @include('layouts.main-sidebar')
                 @include('layouts.models')
             	@include('layouts.footer')
-                @include('layouts.main-sidebar')
 				@include('layouts.footer-scripts')
-
+                @livewireScripts
 	</body>
-
 </html>
 
 <script>

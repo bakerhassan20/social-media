@@ -668,7 +668,8 @@ header.sticky {
     padding: 0 48px;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
     z-index: 99;
-    position: relative;
+    position: fixed;
+    width: 100%;
 }
 
 .logo {
@@ -791,7 +792,7 @@ header.sticky {
 .feature-photo {
     display: block;
     position: relative;
-    width: 100%;
+    width: 95%;
 }
 
 .feature-photo > figure {
@@ -1938,7 +1939,7 @@ li.post-comment .comet-avatar {
     right: 10px;
     top: 83%;
     transform: translateY(-50%);
- 
+
     line-height: 10px;
 
 }
@@ -2025,13 +2026,14 @@ li.post-comment .comet-avatar {
 span.status {
     background: #bebebe none repeat scroll 0 0;
     border-radius: 50%;
-    bottom: 0;
+    bottom: 1px;
     display: inline-block;
-    height: 12px;
+    height: 10px;
     padding: 2px;
     position: absolute;
-    right: 0;
-    width: 12px;
+    right: 11px;
+    width: 10px;
+
 }
 
 span.status::after {
@@ -4785,7 +4787,7 @@ canvas {
     bottom: -2px;
     position: absolute;
     right: 100%;
-    width: 300px;
+    width: 400px;
     z-index: 9999999;
     transform: translate(40px) scale(0);
     opacity: 0;
@@ -4814,7 +4816,9 @@ canvas {
     display: inline-block;
     width: 100%;
 }
-
+.chat-list{
+    background-color: #dee2e6;
+}
 .chat-head > h6 {
     display: inline-block;
     font-weight: bold;
@@ -4876,12 +4880,12 @@ canvas {
 }
 
 .chat-list > ul {
-    margin: 0;
+
     padding-left: 0;
-    max-height: 290px;
-    overflow: hidden;
+    overflow-y: scroll !important;
     position: relative;
-    padding-right: 8px;
+    height: 300px;
+
 }
 
 .chat-thumb {
@@ -4889,7 +4893,22 @@ canvas {
     vertical-align: top;
     width: 28px;
 }
+.msg_cotainer {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10px;
+    background-color: rgba(76, 175, 80, 0.15);
+    padding: 10px;
+    position: relative;
+  }
 
+  .msg_cotainer_send {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 10px;
+    background-color: #e4edf9;
+    padding: 10px;
+    position: relative; }
 .notification-event {
     display: inline-block;
     margin-left: 8px;
@@ -5449,7 +5468,7 @@ canvas {
 }
 
 .chat-friendz .chat-box {
-    bottom: -40px;
+    top:30px;
 }
 
 .menu-left {

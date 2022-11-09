@@ -17,3 +17,4 @@
 
 @yield('css')
 
+@livewireStyles

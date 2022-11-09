@@ -6,51 +6,70 @@
 		<div class="feature-photo">
 			<figure><img  id="output2" style="height:400px;min-width:1366px"src="{{ asset('assets/Users_Img/'.$user->cover_img)}}"alt=""></figure>
 
-        <form action="{{ route('cancel_friend') }}" method="post" enctype="multipart/form-data">
-               @csrf
-			<div class="add-btn">
 
-                 <input type="hidden"value="{{ $user->id }}" name="friend_id">
-        @php
-            if(\App\Models\FriendRequest::where(['user_id'=>$user->id,'friend_id'=>Auth::user()->id])->exists()){
-                echo'<button style="background-color:red;margin:30px 7px 35px 0px" type="submit"><i class="fas fa-window-close"></i> Cancel Request</button><br>';
-            }
-        @endphp
+      <?php
 
-			</div>
-        </form>
+          if(\App\Models\Friends::where(['user_id'=>Auth::user()->id,'friend_id'=>$user->id])->count() > 0 ||\App\Models\Friends::where(['user_id'=>$user->id,'friend_id'=>Auth::user()->id])->count() > 0){
+        ?> <form action='{{ route('add_friend') }}' method="post">
+                    @csrf
+			       <div class="add-btn">
+                   <input type="hidden"value="{{ $user->id }}" name="friend_id">
+                   <input type="hidden"value="delete" name="delete">
+                   <button style="background-color:#cbcb0b" type="submit"><i class="fas fa-window-close"></i> delete Friend</button>
+        </div></form>
 
+         <?php
+          }
+          else{
 
-     <form action="{{ route('add_friend') }}" method="post" enctype="multipart/form-data">
-               @csrf
-			<div class="add-btn">
-				<span>1.3k followers</span>
-                 <input type="hidden"value="{{ $user->id }}" name="friend_id">
-        @php
             if(\App\Models\FriendRequest::where(['user_id'=>Auth::user()->id,'friend_id'=>$user->id])->exists()){
-                echo'<button style="background-color:red" type="submit"><i class="fas fa-window-close"></i> Cancel Request</button>';
-            }
-            elseif(\App\Models\FriendRequest::where(['user_id'=>$user->id,'friend_id'=>Auth::user()->id])->exists()){
+        ?>
+            <form action='{{ route('add_friend') }}' method="post">
+                    @csrf
+                    <div class="add-btn">
+                    <span>1.3k followers</span>
+                    <input type="hidden"value="{{ $user->id }}" name="friend_id">
+                    <input type="hidden"value="cancel" name="cancel">
+                    <button style="background-color:red;margin:30px 7px 35px 0px" type="submit"><i class="fas fa-window-close"></i> Cancel Request</button><br></div></form>
+          <?php
+            }elseif( \App\Models\FriendRequest::where(['user_id'=>$user->id,'friend_id'=>Auth::user()->id])->exists()){
+            ?>
+                    <form action='{{ route('add_friend') }}' method="post">
+                    @csrf
+                    <div class="add-btn">
+                    <span>1.3k followers</span>
+                    <input type="hidden"value="{{ $user->id }}" name="friend_id">
+                    <input type="hidden"value="cancel" name="cancel">
+                    <button style="background-color:red;margin:30px 7px 35px 0px" type="submit"><i class="fas fa-window-close"></i> Cancel Request</button><br></div></form>
 
-                   echo'<button style="background-color:green" type="submit"><i class="fas fa-user-check"></i> Accept Request</button>';
 
-            }
-            else{
+                    <form action='{{ route('add_friend') }}' method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="add-btn">
+                    <span>1.3k followers</span>
+                    <input type="hidden"value="{{ $user->id }}" name="friend_id">
+                    <input type="hidden"value="accept" name="accept">
+                    <button style="background-color:green" type="submit"><i class="fas fa-user-check"></i> Accept Request</button>
+                    </div>
+                    </form>
 
-            if($UserFriend != null){
-             echo' <input type="hidden"value="delete" name="delete">';
-             echo'<button style="background-color:#cbcb0b" type="submit"><i class="fas fa-window-close"></i> delete Friend</button>';
 
-            }else{
-            echo'<button type="submit"><i class="fas fa-user-plus"></i> Add Friend</button>';
-                }
-
-            }
-        @endphp
-
-			</div>
-        </form>
-
+            <?php
+        }else{
+         ?>
+           <form action='{{ route('add_friend') }}' method="post" enctype="multipart/form-data">
+                 @csrf
+			     <div class="add-btn">
+				 <span>1.3k followers</span>
+                 <input type="hidden"value="{{ $user->id }}" name="friend_id">
+                 <input type="hidden"value="add" name="add">
+                <button type="submit"><i class="fas fa-user-plus"></i> Add Friend</button>
+                </div>
+                </form>
+        <?php
+              }
+     }
+        ?>
 
 
 
@@ -454,74 +473,9 @@
 													<i><a href="https://wpkixx.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1e6977706a7b6c6d71727a7b6c5e79737f7772307d7173">[email&#160;protected]</a></i>
 												</div>
 											</li>
-
                                         @endforeach
-
-
-
 										</ul>
-										<div class="chat-box">
-											<div class="chat-head">
-												<span class="status f-online"></span>
-												<h6>Bucky Barnes</h6>
-												<div class="more">
-													<span><i class="ti-more-alt"></i></span>
-													<span class="close-mesage"><i class="ti-close"></i></span>
-												</div>
-											</div>
-											<div class="chat-list">
-												<ul>
-													<li class="me">
-														<div class="chat-thumb"><img src="images/resources/chatlist1.jpg" alt=""></div>
-														<div class="notification-event">
-															<span class="chat-message-item">
-																Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks
-															</span>
-															<span class="notification-date"><time datetime="2004-07-24T18:18" class="entry-date updated">Yesterday at 8:10pm</time></span>
-														</div>
-													</li>
-													<li class="you">
-														<div class="chat-thumb"><img src="images/resources/chatlist2.jpg" alt=""></div>
-														<div class="notification-event">
-															<span class="chat-message-item">
-																Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks
-															</span>
-															<span class="notification-date"><time datetime="2004-07-24T18:18" class="entry-date updated">Yesterday at 8:10pm</time></span>
-														</div>
-													</li>
-													<li class="me">
-														<div class="chat-thumb"><img src="images/resources/chatlist1.jpg" alt=""></div>
-														<div class="notification-event">
-															<span class="chat-message-item">
-																Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks
-															</span>
-															<span class="notification-date"><time datetime="2004-07-24T18:18" class="entry-date updated">Yesterday at 8:10pm</time></span>
-														</div>
-													</li>
-												</ul>
-												<form class="text-box">
-													<textarea placeholder="Post enter to post..."></textarea>
-													<div class="add-smiles">
-														<span title="add icon" class="em em-expressionless"></span>
-													</div>
-													<div class="smiles-bunch">
-														<i class="em em---1"></i>
-														<i class="em em-smiley"></i>
-														<i class="em em-anguished"></i>
-														<i class="em em-laughing"></i>
-														<i class="em em-angry"></i>
-														<i class="em em-astonished"></i>
-														<i class="em em-blush"></i>
-														<i class="em em-disappointed"></i>
-														<i class="em em-worried"></i>
-														<i class="em em-kissing_heart"></i>
-														<i class="em em-rage"></i>
-														<i class="em em-stuck_out_tongue"></i>
-													</div>
-													<button type="submit"></button>
-												</form>
-											</div>
-										</div>
+
 									</div><!-- friends list sidebar -->
 								</aside>
 							</div><!-- sidebar -->

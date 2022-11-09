@@ -12,63 +12,45 @@ class FriendsController extends Controller
 {
     public function add_friend(Request $request){
 
-       $user_id = Auth::user()->id;
-       $friend_id = $request->friend_id;
-       $friend_request = FriendRequest::where(['user_id'=> $user_id,'friend_id'=>$friend_id])->first();
-       $friend_request2 = FriendRequest::where(['user_id'=> $friend_id,'friend_id'=>$user_id])->first();
+        $user_id = Auth::user()->id;
+        $friend_id = $request->friend_id;
 
-       if($request->delete){
-        $friend= Friends::where(['user_id'=>Auth::user()->id,'friend_id'=>$user_id])->orWhere(['user_id'=>$user_id,'friend_id'=>Auth::user()->id])->first();
+        if($request->delete){
 
-        $friend->delete();
-        flash()->addError('Friend Deleted Successfully');
-        return back();
+            $friend = Friends::where(['user_id'=>$user_id,'friend_id'=>$friend_id])->orWhere(['user_id'=>$friend_id,'friend_id'=>$user_id])->first();
 
-       }else{
-
-
-        if(FriendRequest::where(['user_id'=> $user_id,'friend_id'=>$friend_id])->exists()){
-            $friend_request->delete();
-            flash()->addError('Request Canceled Successfully');
+            $friend->delete();
+            flash()->addError('Friend Deleted Successfully');
             return back();
-           }elseif(FriendRequest::where(['user_id'=> $friend_id,'friend_id'=>$user_id])->exists()){
-            $friend_request2->delete();
-            Friends::create([
-                'user_id' => $user_id,
-                'friend_id' => $friend_id,
-           ]);
-            flash()->addSuccess('Request Accepted Successfully');
-            return back();
-           }
-           else{
-            FriendRequest::create([
+
+        }else{
+
+         if($request->cancel){
+             $friend_request = FriendRequest::where(['user_id'=>$user_id,'friend_id'=>$friend_id])->orWhere(['user_id'=>$friend_id,'friend_id'=>$user_id])->first();
+
+             $friend_request->delete();
+             flash()->addError('Request Canceled Successfully');
+             return back();
+
+         }elseif($request->accept){
+
+             $friend_request2 = FriendRequest::where(['user_id'=> $friend_id,'friend_id'=>$user_id])->first();
+             $friend_request2->delete();
+             Friends::create([
+                 'user_id' => $user_id,
+                 'friend_id' => $friend_id,
+            ]);
+             flash()->addSuccess('Request Accepted Successfully');
+             return back();
+         }else{
+             FriendRequest::create([
                  'user_id' => $user_id,
                  'friend_id' => $friend_id,
             ]);
             flash()->addSuccess('Request Sent Successfully');
             return back();
-           }
-
-
-       }
-
-
-
-
-    }
-
-    public function cancel_friend(Request $request){
-
-        $user_id = Auth::user()->id;
-        $friend_id = $request->friend_id;
-        $friend_request = FriendRequest::where(['user_id'=> $friend_id,'friend_id'=>$user_id])->first();
-        if(FriendRequest::where(['user_id'=> $friend_id,'friend_id'=>$user_id])->exists()){
-         $friend_request->delete();
-         flash()->addError('Request Canceled Successfully');
-         return back();
+         }
         }
-
-
      }
 
 }

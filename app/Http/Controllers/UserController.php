@@ -91,16 +91,20 @@ class UserController extends Controller
 
 
         public function user_profile($id){
+            if($id == Auth::user()->id){
+                
+                $posts = Post::all()->where('user_id',Auth::user()->id)->sortByDesc('id');
+                return view('user.profile',compact('posts'));
+            }else{
+                $user = User::findOrFail($id);
+                $UserFriend =Friends::where(['user_id'=>Auth::user()->id,'friend_id'=>$user->id])->orWhere(['user_id'=>$user->id,'friend_id'=>Auth::user()->id])->count();
+                $posts = Post::all()->where('user_id',$id)->sortByDesc('id');
+                $friends1 = Friends::Where('user_id','=',$user->id)->where('friend_id','!=',Auth::user()->id)->get('friend_id');
+                $friends2 =Friends::where('friend_id','=',$user->id)->where('user_id','!=',Auth::user()->id)->get('user_id');
 
-          $user = User::findOrFail($id);
+                return view('user.user_profile',compact('posts','user','UserFriend','friends1','friends2'));
+            }
 
-          $UserFriend =Friends::where(['user_id'=>Auth::user()->id,'friend_id'=>$user->id])->orWhere(['user_id'=>$user->id,'friend_id'=>Auth::user()->id])->first();
-
-          $posts = Post::all()->where('user_id',$id)->sortByDesc('id');
-          $friends1 = Friends::Where('user_id','=',$user->id)->where('friend_id','!=',Auth::user()->id)->get('friend_id');
-          $friends2 =Friends::where('friend_id','=',$user->id)->where('user_id','!=',Auth::user()->id)->get('user_id');
-
-          return view('user.user_profile',compact('posts','user','UserFriend','friends1','friends2'));
         }
 
 

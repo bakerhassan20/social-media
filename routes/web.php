@@ -10,11 +10,9 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth']], function(){
 
-    Route::get('/', function () {
-     $users = User::all()->where('id','!=', Auth::user()->id);
-     return view('home',compact('users'));
-      });
+
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/', [HomeController::class, 'index']);
     Route::get('/profile', [UserController::class, 'index'])->name('profile');
     Route::post('/profile/updateimage', [UserController::class, 'updateimage'])->name('updateimage');
     Route::post('/profile/update_password',[UserController::class, 'update_password'])->name('update_password');

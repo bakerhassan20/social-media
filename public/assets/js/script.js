@@ -2,32 +2,49 @@ jQuery(document).ready(function($) {
 
 	"use strict";
 
-//------- Notifications Dropdowns
-  $('.top-area > .setting-area > li').on("click",function(){
-	$(this).siblings().children('div').removeClass('active');
-	$(this).children('div').addClass('active');
+
+ //--- Notifications dropdown on topbar
+ $('.Notifi').on("click",function(){
+    $('.Notifications').toggleClass("active");
+    $('.Messages').removeClass("active");
+    $('.languages').removeClass("active");
+    $('.user-setting').removeClass("active");
+  });
+
+  //--- Messages dropdown on topbar
+ $('.Mess').on("click",function(){
+    $('.Messages').toggleClass("active");
+    $('.languages').removeClass("active");
+    $('.Notifications').removeClass("active");
+    $('.user-setting').removeClass("active");
 
   });
-//------- remove class active on body
-  $("body *").not('.top-area > .setting-area > li').on("click", function() {
-	$(".top-area > .setting-area > li > div").removeClass('active');
- });
 
+  //--- languages dropdown on topbar
+ $('.lang').on("click",function(){
+    $('.languages').toggleClass("active");
+    $('.Notifications').removeClass("active");
+    $('.Messages').removeClass("active");
+    $('.user-setting').removeClass("active");
+
+  });
 
 //--- user setting dropdown on topbar
 $('.user-img').on('click', function() {
 	$('.user-setting').toggleClass("active");
+    $('.languages').removeClass("active");
+    $('.Notifications').removeClass("active");
+    $('.Messages').removeClass("active");
 
 });
 
-//--- side message box
-$('.friendz-list > li, .chat-users > li').on('click', function() {
+ //--- side message box
+ $('.chat-users > li').on('click', function() {
 	$('.chat-box').addClass("show");
 
 });
 	$('.close-mesage').on('click', function() {
 		$('.chat-box').removeClass("show");
-
 	});
 
 //------ scrollbar plugin

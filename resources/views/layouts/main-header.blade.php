@@ -60,21 +60,14 @@
 				</li>
 			</ul>
 			<ul class="setting-area">
-				<li>
-					<a href="#" title="Home" data-ripple=""><i class="ti-search"></i></a>
-					<div class="searched">
-						<form method="post" class="form-search">
-							<input type="text" placeholder="Search Friend">
-							<button data-ripple><i class="ti-search"></i></button>
-						</form>
-					</div>
-				</li>
-				<li><a href="newsfeed.html" title="Home" data-ripple=""><i class="ti-home"></i></a></li>
-				<li>
+
+				<li><a href="{{ route('home') }}" title="Home" data-ripple=""><i class="ti-home"></i></a></li>
+
+				<li class="Notifi">
 					<a href="#" title="Notification" data-ripple="">
 						<i class="ti-bell"></i><span>20</span>
 					</a>
-					<div class="dropdowns">
+					<div class="dropdowns Notifications">
 						<span>4 New Notifications</span>
 						<ul class="drops-menu">
 							<li>
@@ -135,10 +128,12 @@
 						</ul>
 						<a href="notifications.html" title="" class="more-mesg">view more</a>
 					</div>
+
 				</li>
-				<li>
+
+				<li class="Mess">
 					<a href="#" title="Messages" data-ripple=""><i class="ti-comment"></i><span>12</span></a>
-					<div class="dropdowns">
+					<div class="dropdowns Messages">
 						<span>5 New Messages</span>
 						<ul class="drops-menu">
 							<li>
@@ -200,15 +195,19 @@
 						<a href="messages.html" title="" class="more-mesg">view more</a>
 					</div>
 				</li>
-				<li><a href="#" title="Languages" data-ripple=""><i class="fa fa-globe"></i></a>
+
+                <li class="lang">
+            	<a href="#" title="Languages" data-ripple=""><i class="fa fa-globe"></i></a>
 					<div class="dropdowns languages">
 						<a href="#" title=""><i class="ti-check"></i>English</a>
 						<a href="#" title="">Arabic</a>
 						<a href="#" title="">Dutch</a>
 						<a href="" title="">French</a>
-					</div>
-				</li>
+				</div>
+             </li>
+
 			</ul>
+
 			<div class="user-img" style="margin-right:25px">
 				<img style="height:45px;width:45px" src="{{ asset('assets/Users_Img/'.Auth::user()->img)}}" alt="">
 				<span class="status f-online"></span>

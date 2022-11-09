@@ -68,4 +68,8 @@ function dislikes(postId){
    }
 
 
+function scrollDown(){
+   document.getElementById("chat").scrollTop = document.getElementById("chat").scrollHeight
+ }
+setInterval(scrollDown,10);
 </script>
