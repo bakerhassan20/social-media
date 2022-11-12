@@ -501,3 +501,28 @@ $('#ps_photo').on("click", function(event) {
     $("#post_section").attr("style","display:none;");
     $("#img_section").attr("style","display:unset; !important;");
 });
+
+ // widget my page in home page
+$('#Posts_link').on("click", function(event) {
+    $('#Posts_link').addClass("active");
+    $('#Friends_link').removeClass("active");
+    $('#link1').addClass("show");
+    $('#link2').removeClass("show");
+    $('#link1').addClass("active");
+    $('#link2').removeClass("active");
+
+
+});
+
+$('#Friends_link').on("click", function(event) {
+    $('#Friends_link').addClass("active");
+    $('#Posts_link').removeClass("active");
+    $('#link2').addClass("show");
+    $('#link1').removeClass("show");
+    $('#link2').addClass("active");
+    $('#link1').removeClass("active");
+
+});
+ 
+
+

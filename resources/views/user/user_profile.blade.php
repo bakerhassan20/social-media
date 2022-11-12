@@ -6,7 +6,7 @@
 		<div class="feature-photo">
 			<figure><img  id="output2" style="height:400px;min-width:1366px"src="{{ asset('assets/Users_Img/'.$user->cover_img)}}"alt=""></figure>
 
-
+    <div id="rerequest">
       <?php
 
           if(\App\Models\Friends::where(['user_id'=>Auth::user()->id,'friend_id'=>$user->id])->count() > 0 ||\App\Models\Friends::where(['user_id'=>$user->id,'friend_id'=>Auth::user()->id])->count() > 0){
@@ -72,7 +72,7 @@
         ?>
 
 
-
+</div>
 
 
 			<div class="container-fluid">

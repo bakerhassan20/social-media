@@ -17,7 +17,7 @@
 			<i class="fa fa-camera-retro"></i>
 			<label class="fileContainer">
 				Edit Cover Photo
-			   <input type="file" name="cover_image" id="customFile"onchange="loadFilecover(event)"/>
+			   <input type="file" name="cover_image" id="customFiles"onchange="loadFilecover(event)"/>
 
 			</label>
 	    </div>

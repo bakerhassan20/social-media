@@ -12,10 +12,10 @@
 			<li class="Notifi">
 				<a href="#" title="Notification" data-ripple="">
 				   <i id="reNotififf"class="ti-bell"></i>
-                   <span>{{ auth()->user()->unreadNotifications->count() }}</span>
+                   <span id="notifications_count">{{ auth()->user()->unreadNotifications->count() }}</span>
 				</a>
 
-				<div class="dropdowns Notifications">
+				<div class="dropdowns Notifications"id="unreadNotifications">
 			        <span>{{ auth()->user()->unreadNotifications->count() }} New Notifications</span>
 
 				    <ul class="drops-menu">

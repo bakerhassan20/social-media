@@ -110,7 +110,7 @@
                                         {{ $post->users->name}}
                                     </a>
                                 </ins>
-                                <span>published: $post->created_at</span>
+                                <span>published: {{ $post->created_at }}</span>
                             </div>
 
         <div class="post-meta">
@@ -255,8 +255,8 @@
             </div>
             <div class="page-likes">
                 <ul class="nav nav-tabs likes-btn">
-                    <li class="nav-item"><a class="active" href="#link1"data-toggle="tab">Posts</a></li>
-                    <li class="nav-item"><a class="" href="#link2" data-toggle="tab">Friends</a></li>
+                    <li class="nav-item"><a class="active" href="#"id="Posts_link">Posts</a></li>
+                    <li class="nav-item"><a class="" href="#" id="Friends_link">Friends</a></li>
                 </ul>
             <!-- Tab panes -->
             <div class="tab-content">
@@ -296,6 +296,7 @@
             @endif
         </ul>
 </div><!-- friends list sidebar -->
+
                             </aside>
                         </div><!-- sidebar -->
                     </div>

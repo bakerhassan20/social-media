@@ -1,6 +1,6 @@
 <!-- Message Modal -->
 <!-- Modal -->
-<a href="#top" id="back-to-top"><i class="las la-angle-double-up"></i></a>
+{{-- <a href="#top" id="back-to-top"><i class="las la-angle-double-up"></i></a> --}}
 <div class="modal  fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style=" position: abslute;z-index:10">
   <div class="modal-dialog">
     <div class="modal-content">

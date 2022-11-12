@@ -1,5 +1,5 @@
-{{--  wire:poll  --}}
- <div>
+
+ <div wire:poll >
 
                                                 <div class="chat-head">
                                                     <span class="status f-online"></span>
