@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\FriendRequest;
 use App\Models\Friends;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
+
 
 
 class FriendsController extends Controller
@@ -47,6 +50,12 @@ class FriendsController extends Controller
                  'user_id' => $user_id,
                  'friend_id' => $friend_id,
             ]);
+
+
+            $user = User::find($friend_id);
+            $friend = User::where('id',$friend_id)->first();
+
+            Notification::send($user, new \App\Notifications\Friend_Request($friend));
             flash()->addSuccess('Request Sent Successfully');
             return back();
          }

@@ -2,15 +2,17 @@
 <a href="#top" id="back-to-top"><i class="las la-angle-double-up"></i></a>
 
 
-   {{--  <script src="{{URL::asset('assets/../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js')}}"></script> --}}
+ <script src="{{URL::asset('assets/../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js')}}"></script>
 
-	{{-- <script src="{{URL::asset('assets/js/map-init.js')}}"></script> --}}
+	 <script src="{{URL::asset('assets/js/map-init.js')}}"></script> }
 
-    {{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8c55_YHLvDHGACkQscgbGLtLRdxBDCfI"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8c55_YHLvDHGACkQscgbGLtLRdxBDCfI"></script>
+
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
-    --}}
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="{{URL::asset('assets/js/main.min.js')}}"></script>
@@ -72,4 +74,5 @@ function scrollDown(){
    document.getElementById("chat").scrollTop = document.getElementById("chat").scrollHeight
  }
 setInterval(scrollDown,10);
+
 </script>

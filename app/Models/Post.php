@@ -13,6 +13,7 @@ class Post extends Model
         'likes',
         'desliks',
         'desc',
+        'file_name',
     ];
     public function comments(){
         return $this->hasMany(Comments::class,'post_id');
@@ -21,4 +22,5 @@ class Post extends Model
     public function users(){
     return $this->belongsTo(User::class,'user_id');
    }
+
 }

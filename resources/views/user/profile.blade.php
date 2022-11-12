@@ -3,53 +3,52 @@
 @section('content')
 	<section>
 
-		<div class="feature-photo">
-			<figure><img  id="output2" style="height:400px;min-width:1366px"src="{{ asset('assets/Users_Img/'.Auth::user()->cover_img)}}"alt=""></figure>
-         <form action="{{route('updateimage')}}" method="post" enctype="multipart/form-data">
-               @csrf
-			<div class="add-btn">
-				<span>1.3k followers</span>
+<div class="feature-photo">
+	<figure>
+        <img  id="output2" style="height:400px;min-width:1366px"src="{{ asset('assets/Users_Img/'.Auth::user()->cover_img)}}"alt="">
+    </figure>
+    <form action="{{route('updateimage')}}" method="post" enctype="multipart/form-data">
+        @csrf
+		<div class="add-btn">
+		    <span>1.3k followers</span>
 				<button type="submit">Save Photos</button>
-			</div>
-			<div class="edit-phto">
-				<i class="fa fa-camera-retro"></i>
-				<label class="fileContainer">
-					Edit Cover Photo
-				<input type="file" name="cover_image" id="customFile"onchange="loadFilecover(event)"/>
+		</div>
+		<div class="edit-phto">
+			<i class="fa fa-camera-retro"></i>
+			<label class="fileContainer">
+				Edit Cover Photo
+			   <input type="file" name="cover_image" id="customFile"onchange="loadFilecover(event)"/>
 
 			</label>
-			</div>
-			<div class="container-fluid">
-				<div class="row merged">
-					<div class="col-lg-2 col-sm-3">
-						<div class="user-avatar">
-							<figure>
-								<img style="min-height:164px;min-width:169px" src="{{ asset('assets/Users_Img/'.Auth::user()->img)}}" alt="" id="output">
-								<div class="edit-phto">
-									<i class="fa fa-camera-retro"></i>
-									<label class="fileContainer">
-										Edit Display Photo
-										<input type="file" name="image" id="customFile"onchange="loadFile(event)"/>
+	    </div>
+		<div class="container-fluid">
+			<div class="row merged">
+				<div class="col-lg-2 col-sm-3">
+					<div class="user-avatar">
+					    <figure>
+							<img style="min-height:164px;min-width:169px" src="{{ asset('assets/Users_Img/'.Auth::user()->img)}}" alt="" id="output">
+						    <div class="edit-phto">
+							    <i class="fa fa-camera-retro"></i>
+							    <label class="fileContainer">Edit Display Photo
+					                <input type="file" name="image" id="customFile"onchange="loadFile(event)"/>
+                                </label>
+                            </div>
+						</figure>
         </form>
-									</label>
-								</div>
-							</figure>
+
+
 						</div>
 					</div>
-					<div class="col-lg-10 col-sm-9">
+			    <div class="col-lg-10 col-sm-9">
 						<div class="timeline-info">
 							<ul>
 								<li class="admin-name">
 								  <h5>{{ Auth::user()->name }}</h5>
 								  <span style="left:0"> {{ Auth::user()->email }}</span>
 								</li>
-								<li>
-									<a class="active" href="fav-page.html" title="" data-ripple="">Page</a>
-									<a class="" href="notifications.html" title="" data-ripple="">Notifications</a>
-									<a class="" href="inbox.html" title="" data-ripple="">inbox</a>
-									<a class="" href="insights.html" title="" data-ripple="">insights</a>
-									<a class="" href="fav-page.html" title="" data-ripple="">posts</a>
-									<a class="" href="page-likers.html" title="" data-ripple="">likers</a>
+								<li style="margin-left: 160px;">
+									<a class="active" id="ps_section" href="#"data-ripple="">Posts</a>
+									<a class="" href="#"id="ps_photo"data-ripple="">Photos</a>
 								</li>
 							</ul>
 						</div>
@@ -68,57 +67,6 @@
 						<div class="row" id="page-contents">
 							<div class="col-lg-3">
 								<aside class="sidebar static">
-
-									<div class="widget">
-										<h4 class="widget-title">Shortcuts</h4>
-										<ul class="naves">
-											<li>
-												<i class="ti-clipboard"></i>
-												<a href="newsfeed.html" title="">News feed</a>
-											</li>
-											<li>
-												<i class="ti-mouse-alt"></i>
-												<a href="inbox.html" title="">Inbox</a>
-											</li>
-											<li>
-												<i class="ti-files"></i>
-												<a href="fav-page.html" title="">My pages</a>
-											</li>
-											<li>
-												<i class="ti-user"></i>
-												<a href="timeline-friends.html" title="">friends</a>
-											</li>
-											<li>
-												<i class="ti-image"></i>
-												<a href="timeline-photos.html" title="">images</a>
-											</li>
-											<li>
-												<i class="ti-video-camera"></i>
-												<a href="timeline-videos.html" title="">videos</a>
-											</li>
-											<li>
-												<i class="ti-comments-smiley"></i>
-												<a href="messages.html" title="">Messages</a>
-											</li>
-											<li>
-												<i class="ti-bell"></i>
-												<a href="notifications.html" title="">Notifications</a>
-											</li>
-											<li>
-												<i class="ti-share"></i>
-												<a href="people-nearby.html" title="">People Nearby</a>
-											</li>
-											<li>
-												<i class="fa fa-bar-chart-o"></i>
-												<a href="insights.html" title="">insights</a>
-											</li>
-											<li>
-												<i class="ti-power-off"></i>
-												<a href="landing.html" title="">Logout</a>
-											</li>
-										</ul>
-									</div><!-- Shortcuts -->
-
 
 										<div class="widget stick-widget">
 											<h4 class="widget-title">Edit info</h4>
@@ -151,79 +99,79 @@
 							</div><!-- sidebar -->
 
 
-							<div class="col-lg-5">
+<div class="col-lg-5" id="post_section">
+	<div class="central-meta">
+		<div class="new-postbox">
+			<figure>
+			<img style="height:50px;width:50px" src="{{ asset('assets/Users_Img/' . Auth::user()->img) }}" alt="">
+			</figure>
+			<div class="newpst-input">
+				<form method="post" action="{{route('post.store')}}"enctype="multipart/form-data">
+                    {{ csrf_field() }}
+						<textarea rows="3" name="desc" placeholder="write something" required></textarea>
+            <div id="post_img">
+            <!-- append code by js -->
+            </div>
 
-
-								<div class="central-meta">
-									<div class="new-postbox">
-										<figure>
-											<img style="height:50px;width:50px" src="{{ asset('assets/Users_Img/' . Auth::user()->img) }}" alt="">
-										</figure>
-										<div class="newpst-input">
-											<form method="post" action="{{route('post.store')}}">
-                                            {{ csrf_field() }}
-												<textarea rows="3" name="desc" placeholder="write something" required></textarea>
-
-												<div class="attachments">
-													<ul>
-														<li>
-															<button type="submit">Publish</button>
-														</li>
-													</ul>
-												</div>
-											</form>
-										</div>
-									</div>
-								</div><!-- add post new box -->
+		<div class="attachments">
+			<ul>
+                <li>
+				    <i class="fa fa-image"></i>
+					<label class="fileContainer">
+						<input type="file"onchange="loadFilepost(event)"id="post_file"name="post_file">
+					</label>
+				</li>
+				<li>
+					<button type="submit">Publish</button>
+				</li>
+			</ul>
+		</div>
+				</form>
+			</div>
+	</div>
+</div><!-- add post new box -->
 
 
 
                                 {{-- POSTS --}}
 
-								<div class="loadMore">
-
-                                @foreach ($posts as $post)
-
-
-								<div class="central-meta item">
-									<div class="user-post">
-										<div class="friend-info">
-											<figure>
-												<img src="{{ asset('assets/Users_Img/' . Auth::user()->img) }}" alt="">
-											</figure>
-											<div class="friend-name">
-												<ins><a href="time-line.html" title="">{{ Auth::user()->name }}</a></ins>
-												<span>{{ $post->created_at }}</span>
-											</div>
-											<div class="post-meta">
-
-												<div class="we-video-info">
-													<ul>
-														<li>
-															<span class="comment" data-toggle="tooltip" title="Comments">
-																<i class="fa fa-comments-o"></i>
-														<ins>
-                                                            @php
-                                                              $count= \App\Models\Comments::where('post_id', $post->id )->count();
-                                                              echo $count;
-                                                            @endphp
-                                                        </ins>
-															</span>
-														</li>
-
+<div class="loadMore" >
+    @foreach ($posts as $post)
+		<div class="central-meta item">
+		    <div class="user-post">
+				<div class="friend-info">
+					<figure>
+						<img src="{{ asset('assets/Users_Img/' . Auth::user()->img) }}" alt="">
+					</figure>
+				<div class="friend-name">
+				<ins><a href="{{ route('profile') }}" title="">{{ Auth::user()->name }}</a></ins>
+					<span>{{ $post->created_at }}</span>
+				</div>
+				<div class="post-meta">
+					<div class="we-video-info">
+						<ul>
+						    <li>
+								<span class="comment" data-toggle="tooltip" title="Comments">
+									<i class="fa fa-comments-o"></i>
+								    <ins>
+                                    @php
+                                    $count= \App\Models\Comments::where('post_id', $post->id )->count();
+                                        echo $count;
+                                    @endphp
+                                    </ins>
+								</span>
+						    </li>
 							<li>
 								<span class="like" title="like" id="like" onclick="likes({{ $post->id }})"data-postId="{{ $post->id }}">
-                                        @php
-                                        if(\App\Models\likes::where(['user_id'=> Auth::user()->id,'post_id'=>$post->id])->exists() ){
+                                    @php
+                                    if(\App\Models\likes::where(['user_id'=> Auth::user()->id,'post_id'=>$post->id])->exists() ){
                                           echo'<i class="fas fa-heart" style="color:green;"></i>';
                                         }
-                                        else{
+                                    else{
                                           echo'<i class="far fa-heart" style="color:green;"></i>';
                                         }
-                                        @endphp
-
-
-										<ins id="likes-number" data-postId="{{ $post->id }}">{{ $post->likes }}</ins>
+                                    @endphp
+									<ins id="likes-number" data-postId="{{ $post->id }}">{{ $post->likes }}</ins>
 								</span>
 							</li>
 
@@ -237,7 +185,6 @@
                                           echo'<i class="far fa-heart" style="color:red;"></i>';
                                         }
                                  @endphp
-
 										<ins id="dislikes-number" data-postId="{{ $post->id }}">{{ $post->desliks }}</ins>
 								</span>
 							</li>
@@ -280,248 +227,109 @@
 
 													</ul>
 												</div>
+                                            @if($post->file_name != null)
+                                            <img src="{{ asset('assets/Posts_Img/' . $post->file_name) }}" alt="">
+                                            @endif
 												<div class="description">
 													<span>{{ $post->desc }}</span>
-												</div>
+												   </div>
 											</div>
 										</div>
+	<div class="coment-area">
+		<ul class="we-comet">
+            @foreach ($post->comments as $comment )
+				<li>
+					<div class="comet-avatar">
+			<img style="height:40px;width:40px" src="{{ asset('assets/Users_Img/' .$comment->user->img) }}" alt="">
+					</div>
+					<div class="we-comment">
+					    <div class="coment-head">
+							<h5><a href="time-line.html" title="">{{ $comment->user->name }}</a></h5>
+							<span>{{ $comment->created_at }}</span>
+							<a class="we-reply"></a>
+						</div>
+					    <p>{{ $comment ->content }}</p>
+					</div>
+			    </li>
+            @endforeach
+
+
+                <li class="post-comment">
+                    <div class="comet-avatar">
+                        <img src="{{ asset('assets/Users_Img/' . Auth::user()->img) }}" alt="">
+                    </div>
+                    <div class="post-comt-box">
+                        <form method="post" action="{{ route('comment.store') }}">
+                            {{ csrf_field() }}
+                            <input type="hidden"name="post_id"value="{{ $post->id }}">
+                            <textarea name="content" placeholder="Post your comment" required></textarea>
+                            <div class="add-smiles">
+                                <button class="btn btn-Primary"style="background-color:#088dcd;color:snow" title="add icon">
+                                    comment
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+            </ul>
+			</div>
+		</div>
+	</div>
+@endforeach
+</div>
+{{-- end POSTS --}}
+</div><!-- centerl meta -->
 
 
 
-
-										<div class="coment-area">
-											<ul class="we-comet">
-                                           @foreach ($post->comments as $comment )
-
-												<li>
-													<div class="comet-avatar">
-														<img style="height:40px;width:40px" src="{{ asset('assets/Users_Img/' . $comment->user->img) }}" alt="">
-													</div>
-													<div class="we-comment">
-														<div class="coment-head">
-															<h5><a href="time-line.html" title="">{{ $comment->user->name }}</a></h5>
-															<span>{{ $comment->created_at }}</span>
-															<a class="we-reply"></a>
-														</div>
-														<p>{{ $comment ->content }}</p>
-													</div>
-												</li>
-
-                                           @endforeach
-
-
-												<li class="post-comment">
-													<div class="comet-avatar">
-														<img src="images/resources/comet-4.jpg" alt="">
-													</div>
-													<div class="post-comt-box">
-														<form method="post" action="{{ route('comment.store') }}">
-                                                         {{ csrf_field() }}
-                                                         <input type="hidden"name="post_id"value="{{ $post->id }}">
-															<textarea name="content" placeholder="Post your comment" required></textarea>
-															<div class="add-smiles">
-																<button class="btn btn-Primary"style="background-color:#088dcd;color:snow" title="add icon">comment</button>
-															</div>
-															<div class="smiles-bunch">
-																<i class="em em---1"></i>
-																<i class="em em-smiley"></i>
-																<i class="em em-anguished"></i>
-																<i class="em em-laughing"></i>
-																<i class="em em-angry"></i>
-																<i class="em em-astonished"></i>
-																<i class="em em-blush"></i>
-																<i class="em em-disappointed"></i>
-																<i class="em em-worried"></i>
-																<i class="em em-kissing_heart"></i>
-																<i class="em em-rage"></i>
-																<i class="em em-stuck_out_tongue"></i>
-															</div>
-
-														</form>
-													</div>
-												</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-                            @endforeach
-
-								</div>
-
-                                  {{-- end POSTS --}}
+		<div class="col-lg-5 img_section" id="img_section">
+								<div class="central-meta">
+									<ul class="photos">
+                                    @foreach ($posts as $post)
+                                        @if($post->file_name != null)
+                                          <li>
+											<a class="strip" href="{{ asset('assets/Posts_Img/'.$post->file_name) }}" title="" data-strip-group="mygroup" data-strip-group-options="loop: false">
+												<img style="height:120px;width:120px"src="{{ asset('assets/Posts_Img/'.$post->file_name) }}" alt=""></a>
+										</li>
+                                        @endif
+                                    @endforeach
+									</ul>
+								</div><!-- photos -->
 							</div><!-- centerl meta -->
-							<div class="col-lg-3">
+
+
+
+                        <div class="col-lg-3">
 								<aside class="sidebar static">
-									<div class="advertisment-box">
-										<h4 class="">advertisment</h4>
-										<figure>
-											<a href="#" title="Advertisment"><img src="images/resources/ad-widget.jpg" alt=""></a>
-										</figure>
-									</div>
-
-									<div class="widget">
-										<h4 class="widget-title">Invite friends</h4>
-										<ul class="invition">
-											<li>
-												<figure><img src="images/resources/friend-avatar8.jpg" alt=""></figure>
-												<div class="friend-meta">
-													<h4><a href="time-line.html" class="underline" title="">Sophia hayat</a></h4>
-													<a href="#" title="" class="invite" data-ripple="">invite</a>
-												</div>
-											</li>
-											<li>
-												<figure><img src="images/resources/friend-avatar4.jpg" alt=""></figure>
-												<div class="friend-meta">
-													<h4><a href="time-line.html" class="underline" title="">Issabel kaif</a></h4>
-													<a href="#" title="" class="invite" data-ripple="">invite</a>
-												</div>
-											</li>
-											<li>
-												<figure><img src="images/resources/friend-avatar2.jpg" alt=""></figure>
-												<div class="friend-meta">
-													<h4><a href="time-line.html" class="underline" title="">Kelly Bill</a></h4>
-													<a href="#" title="" class="invite" data-ripple="">invite</a>
-												</div>
-											</li>
-											<li>
-												<figure><img src="images/resources/friend-avatar3.jpg" alt=""></figure>
-												<div class="friend-meta">
-													<h4><a href="time-line.html" class="underline" title="">Allen jhon</a></h4>
-													<a href="#" title="" class="invite" data-ripple="">invite</a>
-												</div>
-											</li>
-											<li>
-												<figure><img src="images/resources/friend-avatar6.jpg" alt=""></figure>
-												<div class="friend-meta">
-													<h4><a href="time-line.html" class="underline" title="">tom Andrew</a></h4>
-													<a href="#" title="" class="invite" data-ripple="">invite</a>
-												</div>
-											</li>
-
-											<li>
-												<figure><img src="images/resources/friend-avatar3.jpg" alt=""></figure>
-												<div class="friend-meta">
-													<h4><a href="time-line.html" title="" class="underline">Allen doe</a></h4>
-													<a href="#" title="" class="invite" data-ripple="">invite</a>
-												</div>
-											</li>
-										</ul>
-									</div><!-- invite for page  -->
-
-
-
 									<div class="widget friend-list stick-widget">
 										<h4 class="widget-title">Friends</h4>
 										<div id="searchDir"></div>
-										<ul id="people-list" class="friendz-list">
-											<li>
-												<figure>
-													<img src="images/resources/friend-avatar.jpg" alt="">
-													<span class="status f-online"></span>
-												</figure>
-												<div class="friendz-meta">
-													<a href="time-line.html">bucky barnes</a>
-													<i><a href="https://wpkixx.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1e6977706a7b6c6d71727a7b6c5e79737f7772307d7173">[email&#160;protected]</a></i>
-												</div>
-											</li>
-											<li>
-												<figure>
-													<img src="images/resources/friend-avatar2.jpg" alt="">
-													<span class="status f-away"></span>
-												</figure>
-												<div class="friendz-meta">
-													<a href="time-line.html">Sarah Loren</a>
-													<i><a href="https://wpkixx.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="debcbfacb0bbad9eb9b3bfb7b2f0bdb1b3">[email&#160;protected]</a></i>
-												</div>
-											</li>
-											<li>
-												<figure>
-													<img src="images/resources/friend-avatar3.jpg" alt="">
-													<span class="status f-off"></span>
-												</figure>
-												<div class="friendz-meta">
-													<a href="time-line.html">jason borne</a>
-													<i><a href="https://wpkixx.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0e646f7d61606c4e69636f6762206d6163">[email&#160;protected]</a></i>
-												</div>
-											</li>
-											<li>
-												<figure>
-													<img src="images/resources/friend-avatar4.jpg" alt="">
-													<span class="status f-off"></span>
-												</figure>
-												<div class="friendz-meta">
-													<a href="time-line.html">Cameron diaz</a>
-													<i><a href="https://wpkixx.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="513b30223e3f3311363c30383d7f323e3c">[email&#160;protected]</a></i>
-												</div>
-											</li>
-											<li>
-
-												<figure>
-													<img src="images/resources/friend-avatar5.jpg" alt="">
-													<span class="status f-online"></span>
-												</figure>
-												<div class="friendz-meta">
-													<a href="time-line.html">daniel warber</a>
-													<i><a href="https://wpkixx.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="315b50425e5f5371565c50585d1f525e5c">[email&#160;protected]</a></i>
-												</div>
-											</li>
-											<li>
-
-												<figure>
-													<img src="images/resources/friend-avatar6.jpg" alt="">
-													<span class="status f-away"></span>
-												</figure>
-												<div class="friendz-meta">
-													<a href="time-line.html">andrew</a>
-													<i><a href="https://wpkixx.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f69c9785999894b6919b979f9ad895999b">[email&#160;protected]</a></i>
-												</div>
-											</li>
-											<li>
-
-												<figure>
-													<img src="images/resources/friend-avatar7.jpg" alt="">
-													<span class="status f-off"></span>
-												</figure>
-												<div class="friendz-meta">
-													<a href="time-line.html">amy watson</a>
-													<i><a href="https://wpkixx.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bad0dbc9d5d4d8faddd7dbd3d694d9d5d7">[email&#160;protected]</a></i>
-												</div>
-											</li>
-											<li>
-
-												<figure>
-													<img src="images/resources/friend-avatar5.jpg" alt="">
-													<span class="status f-online"></span>
-												</figure>
-												<div class="friendz-meta">
-													<a href="time-line.html">daniel warber</a>
-													<i><a href="https://wpkixx.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="076d667468696547606a666e6b2964686a">[email&#160;protected]</a></i>
-												</div>
-											</li>
-											<li>
-
-												<figure>
-													<img src="images/resources/friend-avatar2.jpg" alt="">
-													<span class="status f-away"></span>
-												</figure>
-												<div class="friendz-meta">
-													<a href="time-line.html">Sarah Loren</a>
-													<i><a href="https://wpkixx.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b1d3d0c3dfd4c2f1d6dcd0d8dd9fd2dedc">[email&#160;protected]</a></i>
-												</div>
-											</li>
-										</ul>
-
+									<ul id="people-list" class="friendz-list">
+									@if($friends != null)
+                                        @foreach ($friends as $user )
+                                        <li>
+											<figure>
+												<a href="{{ route('user_profile',$user->id) }}">
+                                                <img src="{{URL::asset('assets/Users_Img/' .$user->img) }}" alt="">
+												<span class="status f-online"></span>
+											</figure>
+											<div class="friendz-meta">
+												<a href="{{ route('user_profile',$user->id) }} ">{{ $user->name }}</a>
+												<i><a href="{{ route('user_profile',$user->id)}}" class="__cf_email__">{{ $user->email }}</a></i>
+											</div>
+										</li>
+                                        @endforeach
+                                    @endif
+									</ul>
 									</div><!-- friends list sidebar -->
 								</aside>
-							</div><!-- sidebar -->
-						</div>
+						</div><!-- sidebar -->
+						   </div>
 					</div>
 				</div>
 			</div>
 		</div>
-
-
-	</section>
+</section>
 
 
 @endsection

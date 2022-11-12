@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Post_attachments;
 use App\Http\trait\ImageTrait;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Friends;
@@ -19,14 +20,34 @@ class UserController extends Controller
 
         $posts = Post::all()->where('user_id',Auth::user()->id)->sortByDesc('id');
 
-        return view('user.profile',compact('posts'));
+        $friend1 = collect();
+        $friend2 = collect();
+        $friends1 =Friends::where('user_id',Auth::user()->id)->get('friend_id');
+        $friends2 =Friends::where('friend_id',Auth::user()->id)->get('user_id');
+        foreach($friends1 as $friend){
+            $fr1 = User::where('id',$friend->friend_id)->first();
+            $friend1->add($fr1);
 
+        }
+        foreach($friends2 as $friend){
+            $fr2 = User::where('id',$friend->user_id)->first();
+            $friend2->add($fr2);
+        }
+        if(isset($friend1)&&isset($friend2)){
+        $friends = $friend1->merge($friend2);
+        }elseif(!isset($friend1)&&isset($friend2)){
+          $friends = $friend2;
+        }elseif(isset($friend1)&&!isset($friend2)){
+            $friends = $friend1;
+        }else{
+            $friends=null;
+        }
+        return view('user.profile',compact('posts','friends'));
     }
 
 
     public function updateimage(Request $request)
     {
-
         if($request->file('image')){
 
         if(Auth::user()->img != 'default_img.png'){
@@ -91,11 +112,12 @@ class UserController extends Controller
 
 
         public function user_profile($id){
-            if($id == Auth::user()->id){
-                
-                $posts = Post::all()->where('user_id',Auth::user()->id)->sortByDesc('id');
-                return view('user.profile',compact('posts'));
+              $id = (int)$id;
+
+             if($id == Auth::user()->id){
+                return redirect()->route('profile');
             }else{
+
                 $user = User::findOrFail($id);
                 $UserFriend =Friends::where(['user_id'=>Auth::user()->id,'friend_id'=>$user->id])->orWhere(['user_id'=>$user->id,'friend_id'=>Auth::user()->id])->count();
                 $posts = Post::all()->where('user_id',$id)->sortByDesc('id');

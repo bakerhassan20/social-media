@@ -29,6 +29,11 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/add_friend',[FriendsController::class, 'add_friend'])->name('add_friend');
     Route::post('/cancel_friend',[FriendsController::class, 'cancel_friend'])->name('cancel_friend');
 
+    Route::get('/markAsRead', function(){
+        auth()->user()->unreadNotifications->markAsRead();
+        return redirect()->back();
+    })->name('mark');
+
 
 
 });

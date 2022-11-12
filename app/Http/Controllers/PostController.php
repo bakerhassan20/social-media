@@ -5,11 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\likes;
 use App\Models\dislikes;
+use App\Models\Post_attachments;
 use Illuminate\Support\Facades\Auth;
+use App\Http\trait\ImageTrait;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    use ImageTrait;
+
+
     /**
      * Display a listing of the resource.
      *
@@ -46,9 +51,25 @@ class PostController extends Controller
             'desc' => $request ->desc
 
         ]);
+        if($request->file('post_file')){
+            $this->validate($request, [
+
+                'file_name' => 'mimes:jpeg,png,jpg',
+
+                ], [
+                    'file_name.mimes' => 'صيغة المرفق يجب ان تكون   jpeg , png , jpg',
+                ]);
+
+        $post = Post::latest()->first();
+        $dataimage = $this->insertImage($post->id,$request->post_file,'assets/Posts_Img/');
+        $post->update([
+            'file_name'=> $dataimage,
+        ]);
+        }
 
         flash()->addSuccess('Post Published Successfuly');
         return back();
+
     }
 
     /**

@@ -30,7 +30,7 @@
                     <span>1.3k followers</span>
                     <input type="hidden"value="{{ $user->id }}" name="friend_id">
                     <input type="hidden"value="cancel" name="cancel">
-                    <button style="background-color:red;margin:30px 7px 35px 0px" type="submit"><i class="fas fa-window-close"></i> Cancel Request</button><br></div></form>
+                    <button style="background-color:red;margin:30px 7px 35px 0px" type="submit"><i class="fas fa-window-close"></i> Cancel Request</button></div></form>
           <?php
             }elseif( \App\Models\FriendRequest::where(['user_id'=>$user->id,'friend_id'=>Auth::user()->id])->exists()){
             ?>
@@ -40,7 +40,7 @@
                     <span>1.3k followers</span>
                     <input type="hidden"value="{{ $user->id }}" name="friend_id">
                     <input type="hidden"value="cancel" name="cancel">
-                    <button style="background-color:red;margin:30px 7px 35px 0px" type="submit"><i class="fas fa-window-close"></i> Cancel Request</button><br></div></form>
+                    <button style="background-color:red;margin:30px 7px 35px 0px" type="submit"><i class="fas fa-window-close"></i> Cancel Request </button></div></form>
 
 
                     <form action='{{ route('add_friend') }}' method="post" enctype="multipart/form-data">
@@ -91,13 +91,9 @@
 								  <h5>{{$user->name }}</h5>
 								  <span style="left:0"> {{ $user->email }}</span>
 								</li>
-								<li>
-									<a class="active" href="fav-page.html" title="" data-ripple="">Page</a>
-									<a class="" href="notifications.html" title="" data-ripple="">Notifications</a>
-									<a class="" href="inbox.html" title="" data-ripple="">inbox</a>
-									<a class="" href="insights.html" title="" data-ripple="">insights</a>
-									<a class="" href="fav-page.html" title="" data-ripple="">posts</a>
-									<a class="" href="page-likers.html" title="" data-ripple="">likers</a>
+								<li style="margin-left: 130px;">
+									<a class="active" id="ps_section" href="#"data-ripple="">Posts</a>
+									<a class="" href="#"id="ps_photo"data-ripple="">Photos</a>
 								</li>
 							</ul>
 						</div>
@@ -116,57 +112,6 @@
 						<div class="row" id="page-contents">
 							<div class="col-lg-3">
 								<aside class="sidebar static">
-
-									<div class="widget">
-										<h4 class="widget-title">Shortcuts</h4>
-										<ul class="naves">
-											<li>
-												<i class="ti-clipboard"></i>
-												<a href="newsfeed.html" title="">News feed</a>
-											</li>
-											<li>
-												<i class="ti-mouse-alt"></i>
-												<a href="inbox.html" title="">Inbox</a>
-											</li>
-											<li>
-												<i class="ti-files"></i>
-												<a href="fav-page.html" title="">My pages</a>
-											</li>
-											<li>
-												<i class="ti-user"></i>
-												<a href="timeline-friends.html" title="">friends</a>
-											</li>
-											<li>
-												<i class="ti-image"></i>
-												<a href="timeline-photos.html" title="">images</a>
-											</li>
-											<li>
-												<i class="ti-video-camera"></i>
-												<a href="timeline-videos.html" title="">videos</a>
-											</li>
-											<li>
-												<i class="ti-comments-smiley"></i>
-												<a href="messages.html" title="">Messages</a>
-											</li>
-											<li>
-												<i class="ti-bell"></i>
-												<a href="notifications.html" title="">Notifications</a>
-											</li>
-											<li>
-												<i class="ti-share"></i>
-												<a href="people-nearby.html" title="">People Nearby</a>
-											</li>
-											<li>
-												<i class="fa fa-bar-chart-o"></i>
-												<a href="insights.html" title="">insights</a>
-											</li>
-											<li>
-												<i class="ti-power-off"></i>
-												<a href="landing.html" title="">Logout</a>
-											</li>
-										</ul>
-									</div><!-- Shortcuts -->
-
 
 										<div class="widget stick-widget">
 											<h4 class="widget-title">Edit info</h4>
@@ -187,11 +132,7 @@
 													<i class="ti-settings"></i>
 													<a href="edit-account-setting.html" title="">account setting</a>
 												</li>
-												<li>
-													<i class="ti-lock"></i>
-													<a href="" data-bs-toggle="modal" data-bs-target="#exampleModal">change password</a>
 
-												</li>
 											</ul>
 										</div><!-- settings widget -->
 
@@ -199,7 +140,7 @@
 							</div><!-- sidebar -->
 
 
-							<div class="col-lg-6">
+							<div class="col-lg-5" id="post_section">
 
 
                                 {{-- POSTS --}}
@@ -223,7 +164,7 @@
 												<img src="{{ asset('assets/Users_Img/' . $user->img) }}" alt="">
 											</figure>
 											<div class="friend-name">
-												<ins><a href="time-line.html" title="">{{ $user->name }}</a></ins>
+												<ins><a href="{{ route('user_profile',$user->id) }}" title="">{{ $user->name }}</a></ins>
 												<span>{{ $post->created_at }}</span>
 											</div>
 											<div class="post-meta">
@@ -311,6 +252,9 @@
 
 													</ul>
 												</div>
+                                        @if($post->file_name != null)
+                                            <img src="{{ asset('assets/Posts_Img/' . $post->file_name) }}" alt="">
+                                        @endif
 												<div class="description">
 													<span>{{ $post->desc }}</span>
 												</div>
@@ -330,7 +274,7 @@
 													</div>
 													<div class="we-comment">
 														<div class="coment-head">
-															<h5><a href="time-line.html" title="">{{ $comment->user->name }}</a></h5>
+															<h5><a href="{{ route('user_profile',$comment->user->id) }}" title="">{{ $comment->user->name }}</a></h5>
 															<span>{{ $comment->created_at }}</span>
 															<a class="we-reply"></a>
 														</div>
@@ -353,21 +297,6 @@
 															<div class="add-smiles">
 																<button class="btn btn-Primary"style="background-color:#088dcd;color:snow" title="add icon">comment</button>
 															</div>
-															<div class="smiles-bunch">
-																<i class="em em---1"></i>
-																<i class="em em-smiley"></i>
-																<i class="em em-anguished"></i>
-																<i class="em em-laughing"></i>
-																<i class="em em-angry"></i>
-																<i class="em em-astonished"></i>
-																<i class="em em-blush"></i>
-																<i class="em em-disappointed"></i>
-																<i class="em em-worried"></i>
-																<i class="em em-kissing_heart"></i>
-																<i class="em em-rage"></i>
-																<i class="em em-stuck_out_tongue"></i>
-															</div>
-
 														</form>
 													</div>
 												</li>
@@ -377,10 +306,27 @@
 								</div>
                             @endforeach
                            @endif
-								</div>
+		</div>
+                    {{-- end POSTS --}}
+</div><!-- centerl meta -->
 
-                                  {{-- end POSTS --}}
-							</div><!-- centerl meta -->
+
+ 	<div class="col-lg-5 img_section" id="img_section">
+						<div class="central-meta">
+									<ul class="photos">
+                                    @foreach ($posts as $post)
+                                        @if($post->file_name != null)
+                                          <li>
+											<a class="strip" href="{{ asset('assets/Posts_Img/'.$post->file_name) }}" title="" data-strip-group="mygroup" data-strip-group-options="loop: false">
+												<img style="height:120px;width:120px"src="{{ asset('assets/Posts_Img/'.$post->file_name) }}" alt=""></a>
+										</li>
+                                        @endif
+                            @endforeach
+									</ul>
+			</div><!-- photos -->
+	</div><!-- centerl meta -->
+
+
 							<div class="col-lg-3">
 								<aside class="sidebar static">
 									<div class="advertisment-box">
@@ -389,57 +335,6 @@
 											<a href="#" title="Advertisment"><img src="images/resources/ad-widget.jpg" alt=""></a>
 										</figure>
 									</div>
-
-									<div class="widget">
-										<h4 class="widget-title">Invite friends</h4>
-										<ul class="invition">
-											<li>
-												<figure><img src="images/resources/friend-avatar8.jpg" alt=""></figure>
-												<div class="friend-meta">
-													<h4><a href="time-line.html" class="underline" title="">Sophia hayat</a></h4>
-													<a href="#" title="" class="invite" data-ripple="">invite</a>
-												</div>
-											</li>
-											<li>
-												<figure><img src="images/resources/friend-avatar4.jpg" alt=""></figure>
-												<div class="friend-meta">
-													<h4><a href="time-line.html" class="underline" title="">Issabel kaif</a></h4>
-													<a href="#" title="" class="invite" data-ripple="">invite</a>
-												</div>
-											</li>
-											<li>
-												<figure><img src="images/resources/friend-avatar2.jpg" alt=""></figure>
-												<div class="friend-meta">
-													<h4><a href="time-line.html" class="underline" title="">Kelly Bill</a></h4>
-													<a href="#" title="" class="invite" data-ripple="">invite</a>
-												</div>
-											</li>
-											<li>
-												<figure><img src="images/resources/friend-avatar3.jpg" alt=""></figure>
-												<div class="friend-meta">
-													<h4><a href="time-line.html" class="underline" title="">Allen jhon</a></h4>
-													<a href="#" title="" class="invite" data-ripple="">invite</a>
-												</div>
-											</li>
-											<li>
-												<figure><img src="images/resources/friend-avatar6.jpg" alt=""></figure>
-												<div class="friend-meta">
-													<h4><a href="time-line.html" class="underline" title="">tom Andrew</a></h4>
-													<a href="#" title="" class="invite" data-ripple="">invite</a>
-												</div>
-											</li>
-
-											<li>
-												<figure><img src="images/resources/friend-avatar3.jpg" alt=""></figure>
-												<div class="friend-meta">
-													<h4><a href="time-line.html" title="" class="underline">Allen doe</a></h4>
-													<a href="#" title="" class="invite" data-ripple="">invite</a>
-												</div>
-											</li>
-										</ul>
-									</div><!-- invite for page  -->
-
-
 
 									<div class="widget friend-list stick-widget">
 										<h4 class="widget-title">Friends</h4>
@@ -458,11 +353,8 @@
 													<i><a href="https://wpkixx.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1e6977706a7b6c6d71727a7b6c5e79737f7772307d7173">[email&#160;protected]</a></i>
 												</div>
 											</li>
-
                                         @endforeach
-
                                         @foreach ($friends1 as $friend)
-
 											<li>
 												<figure>
 													<img src="{{ asset('assets/Users_Img/' . $friend->fri->img) }}" alt="">

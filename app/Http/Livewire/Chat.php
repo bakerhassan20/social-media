@@ -11,7 +11,7 @@ class Chat extends Component
 {
 
     public $messageText;
-    public $user_id=2;
+    public $user_id=1;
     protected $listeners = ['newid'];
     public function newid($friendId)
     {

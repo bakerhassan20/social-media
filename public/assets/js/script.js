@@ -81,31 +81,31 @@ $('.notification-box > ul li > i.del').on("click", function(){
 	};
 
 	function listFilter(searchDir, list) {
-	  var form = $("<form>").attr({"class":"filterform","action":"#"}),
-	  input = $("<input>").attr({"class":"filterinput","type":"text","placeholder":"Search Contacts..."});
-	  $(form).append(input).appendTo(searchDir);
+        var form = $("<form>").attr({"class":"filterform","action":"#"}),
+        input = $("<input>").attr({"class":"filterinput","type":"text","placeholder":"Search Contacts..."});
+        $(form).append(input).appendTo(searchDir);
 
-	  $(input)
-	  .change( function () {
-		var filter = $(this).val();
-		if(filter) {
-		  $(list).find("li:not(:Contains(" + filter + "))").slideUp();
-		  $(list).find("li:Contains(" + filter + ")").slideDown();
-		} else {
-		  $(list).find("li").slideDown();
-		}
-
-	  })
-	  .keyup( function () {
-		$(this).change();
-	  });
-	}
+        $(input)
+        .change( function () {
+          var filter = $(this).val();
+          if(filter) {
+            $(list).find("li:not(:Contains(" + filter + "))").slideUp();
+            $(list).find("li:Contains(" + filter + ")").slideDown();
+          } else {
+            $(list).find("li").slideDown();
+          }
+          return false;
+        })
+        .keyup( function () {
+          $(this).change();
+        });
+      }
 
 //search friends widget
-	$(function () {
-	  listFilter($("#searchDir"), $("#people-list"));
-	});
-	}(jQuery));
+$(function () {
+    listFilter($("#searchDir"), $("#people-list"));
+  });
+  }(jQuery));
 
 //progress line for page loader
 	$('body').show();
@@ -441,17 +441,63 @@ var loadFile = function(event) {
   };
 
 
+
    //live post image
    var loadFilepost = function(event) {
+    var post_img = document.getElementById('post_img');
+    const element = document.getElementById('output3');
+    if(element != null){
+        element.remove();
+        const element2 = document.getElementById('close-img');
+        element2.remove();
+        var el = document.createElement('img');
+        el.setAttribute('id','output3');
+        el.setAttribute('style','height:70px;width:80px;');
+        el.setAttribute('src');
+        post_img.appendChild(el);
+        //close icone
+        $( "#post_img" ).append( "<span id='close-img'><i class='fas fa-window-close' onclick='closeimg()'></i></span>" );
+
+    }else{
+
+        var el = document.createElement('img');
+        el.setAttribute('id','output3');
+        el.setAttribute('style','height:70px;width:80px;');
+        el.setAttribute('src');
+        post_img.appendChild(el);
+        //close icone
+        $( "#post_img" ).append( "<span id='close-img'><i class='fas fa-window-close' onclick='closeimg()'></i></span>" );
+
+    }
     var output3 = document.getElementById('output3');
     output3.src = URL.createObjectURL(event.target.files[0]);
     output3.onload = function() {
       URL.revokeObjectURL(output3.src) // free memory
     }
+
   };
 
+  function closeimg(){
+
+    var post_file = document.getElementById('post_file').value='';
+    const element = document.getElementById('output3');
+    const element2 = document.getElementById('close-img');
+    element.remove();
+    element2.remove();
+  }
 
 
 
+$('#ps_section').on("click", function(event) {
+    $('#ps_section').toggleClass("active");
+    $('#ps_photo').removeClass("active");
+    $("#img_section").attr("style","display:none;");
+    $("#post_section").attr("style","display:unset;");
+});
 
-
+$('#ps_photo').on("click", function(event) {
+    $('#ps_photo').toggleClass("active");
+    $('#ps_section').removeClass("active");
+    $("#post_section").attr("style","display:none;");
+    $("#img_section").attr("style","display:unset; !important;");
+});

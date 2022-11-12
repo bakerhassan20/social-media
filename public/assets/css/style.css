@@ -1025,8 +1025,8 @@ header.sticky {
     font-size: 11px;
     padding: 0 6px;
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 11px;
+    top: 5px;
 }
 
 .drops-menu > li:nth-child(2n) > a {
@@ -10093,3 +10093,12 @@ aside.sidebar.full-style {
     z-index: 0 !important;
 }
 
+#close-img{
+    position: absolute;
+    left: 168px;
+
+}
+
+#img_section{
+display:none;
+}

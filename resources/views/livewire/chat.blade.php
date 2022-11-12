@@ -1,7 +1,6 @@
+{{--  wire:poll  --}}
+ <div>
 
-
- <div wire:poll>
- 
                                                 <div class="chat-head">
                                                     <span class="status f-online"></span>
                                                     <h6>{{ $user_info->name }}</h6>
