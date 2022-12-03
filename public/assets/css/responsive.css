@@ -21,12 +21,8 @@
     .editing-interest form input {
         width: 73.5%;
     }
-    .peoples {
-        width: 230px;
-    }
-    .peoples-mesg-box {
-        width: 72%;
-    }
+
+
     .sidebar .widget ul.recent-photos li {
         width: 18.9%;
     }
@@ -44,7 +40,7 @@
         width: 18.5%;
     }
     .chat-box {
-      
+
     }
     .edit-phto {
         left: 315px;
@@ -91,9 +87,7 @@
         min-width: 32.4%;
         max-width: 32.4%;
     }
-    .peoples-mesg-box {
-        width: 63.4%;
-    }
+
     .conversation-head > span {
         width: 82%;
     }
@@ -139,9 +133,7 @@
         margin-bottom: 0;
         width: 25%;
     }
-    form .form-group.half {
-        width: 47.6%;
-    }
+
     .editing-interest form input {
         width: 79%;
     }
@@ -154,17 +146,7 @@
     .widget-page .sidebar .widget ul.recent-photos li {
         width: 31.7%;
     }
-    .peoples-mesg-box {
-        width: 64%;
-    }
-    .peoples {
-        width: 150px;
-    }
-    .peoples > li figure {
-        max-width: 25px;
-        min-width: 25px;
-        width: 25px;
-    }
+
     .conversation-head > span {
         width: 74%;
     }
@@ -245,26 +227,17 @@
         text-align: left;
         width: 100%;
     }
-    .career-page .post-filter-sec > form {
-        width: 100%;
-    }
+
     .career-page .purify .chosen-container {
         width: 35.5% !important;
     }
-    .post-filter-sec > form {
-        width: 100%;
-    }
+
     .purify {
         margin-top: 15px;
         text-align: left;
         width: 100%;
     }
-    .l-post-meta {
-        padding: 20px;
-    }
-    .l-post .l-post-meta > h4 {
-        font-size: 20px;
-    }
+
     .right-pading {
         padding-right: 0;
     }
@@ -278,10 +251,7 @@
         font-size: 45px;
         margin-right: 20px;
     }
-    .baner-mockup {
-        margin-top: -40px;
-        width: 30%;
-    }
+
     .detail-meta > h2 {
         max-width: 100%;
     }
@@ -369,9 +339,7 @@
     .editing-interest form input {
         width: 73%;
     }
-    form .form-group.half {
-        width: 48.5%;
-    }
+
     .knowldeg-box {
         padding: 20px 10px;
     }
@@ -388,17 +356,8 @@
         width: 100%;
         height: inherit;
     }
-    .peoples-mesg-box {
-        width: 76.5%;
-    }
-    .peoples > li figure {
-        max-width: 30px;
-        min-width: 30px;
-        width: 30px;
-    }
-    .message-text-container form button {
-        right: 25px;
-    }
+
+
     .liked-pages > li {
         width: 32.5%;
         min-width: 32.5%;
@@ -423,9 +382,6 @@
         margin-right: 20px;
         width: 22%;
     }
-    .advertisment-box img {
-        width: 100%;
-    }
     .chat-box {
         bottom: 25px;
         right: 30px;
@@ -439,22 +395,12 @@
         margin: 10px;
         width: 47.2%;
     }
-    a.add-butn {
-        top: 7px;
-    }
+
     .pepl-info {
         width: 92%;
     }
     .central-meta {
         margin: 10px 10px 10px 0;
-        width: 100%;
-    }
-    .advertisment-box {
-        margin: 10px;
-        width: 47.1%;
-    }
-    .widget-page .advertisment-box {
-        margin: 0 0 30px;
         width: 100%;
     }
     .widget ul.recent-photos li a img,
@@ -500,9 +446,7 @@
         text-align: left;
         width: 100%;
     }
-    .post-filter-sec > form {
-        width: 100%;
-    }
+
     .purify .chosen-container {
         width: 37.4% !important;
     }
@@ -512,9 +456,7 @@
     .left-pading {
         padding-left: 0;
     }
-    .baner-mockup {
-        width: 32%;
-    }
+
     .baner-inf {
         text-align: center;
     }
@@ -529,10 +471,7 @@
     .contct-info2 {
         margin-top: 30px;
     }
-    .category-box {
-        border: 1px solid #eaeaea;
-        padding: 40px;
-    }
+
     .our-teambox {
         margin-bottom: 30px;
     }
@@ -566,9 +505,7 @@
     .price-table {
         margin-bottom: 30px;
     }
-    aside.sidebar.full-style .widget {
-        margin-top: 30px;
-    }
+
     .topic-data > span {
         width: 80px;
     }
@@ -754,9 +691,7 @@
         display: inline-block !important;
         width: 100%;
     }
-    form .form-group.half {
-        width: 100%;
-    }
+
     .accordion {
         width: 100%;
     }
@@ -800,15 +735,10 @@
         margin-bottom: 3px;
         width: 32.1%;
     }
-    .peoples-mesg-box {
-        width: 72%;
-    }
     .people-name > side-panel {
         font-size: 12px;
     }
-    .message-text-container form button {
-        right: 15px;
-    }
+
     .photos > li {
         border: 2px solid #fff;
         float: left;
@@ -965,9 +895,7 @@
     .purify .chosen-container {
         width: 35% !important;
     }
-    .baner-mockup {
-        margin-top: -30px;
-    }
+
     .container .purify .chosen-container {
         margin-bottom: 10px;
         width: 100% !important;
@@ -1066,14 +994,8 @@
         padding-left: 10px;
         width: 87%;
     }
-    a.add-butn {
-        font-size: 11.5px;
-    }
     .notifi-meta {
         width: 77%;
-    }
-    .notification-box > ul li > i.del {
-        width: 100%;
     }
     #people-list figure {
         width: 15%;
@@ -1085,28 +1007,8 @@
         width: 24.2%;
         margin-bottom: 16px;
     }
-    .peoples,
-    .peoples-mesg-box {
-        padding-left: 0;
-        width: 100%;
-    }
-    .peoples {
-        margin-bottom: 40px;
-    }
-    .peoples-mesg-box {
-        background: #fff none repeat scroll 0 0;
-        padding: 20px;
-    }
-    .message-text-container form button {
-        right: 15px;
-    }
-    .friend-logo > span::before,
-    .friend-logo > span::after {
-        top: -15px;
-    }
-    .friend-logo > span {
-        font-size: 140px;
-    }
+
+
     .we-comet > li ul {
         margin-left: 0;
     }
@@ -1171,10 +1073,6 @@
     }
     footer .row > div:last-child .widget {
         margin-bottom: 0;
-    }
-    .advertisment-box,
-    .advertisment-box img {
-        width: 100%;
     }
     .we-video-info > ul li span {
         font-size: 14px;
@@ -1301,13 +1199,8 @@
     .contct-info2 .contact-form form .form-group {
         width: 100%;
     }
-    .l-post > figure,
-    .l-post > figure img {
-        width: 100%;
-    }
-    .l-post-meta {
-        width: 100%;
-    }
+
+
     figure.alignright,
     .alignright {
         float: left;
@@ -1379,9 +1272,7 @@
     .section-heading > p {
         max-width: 100%;
     }
-    .forum-list table tbody tr td p {
-        width: 300px;
-    }
+
     .forum-open .table tr td p {
         width: 300px;
     }
@@ -1393,9 +1284,6 @@
     }
     .date-n-reply > span {
         width: 200px;
-    }
-    .forum-list table tbody tr td h6 {
-        width: 300px;
     }
     .employer-info h2 {
         font-size: 26px;
@@ -1445,11 +1333,7 @@
         margin-top: 20px;
         transform: translate(0);
     }
-    .slider-for-gold .slick-track > li img {
-        max-width: 100%;
-        width: 100%;
-        min-width: 100%;
-    }
+
     .single-btn > li > a {
         font-size: 11px;
         padding: 7px 10px;
@@ -1523,12 +1407,8 @@
         margin-bottom: 10px;
         width: 32.2%;
     }
-    .message-text-container form button {
-        right: 5px;
-    }
-    .peoples-mesg-box {
-        padding: 10px;
-    }
+
+
     .coment-head > h5 {
         white-space: nowrap;
         max-width: 45%;
@@ -1608,28 +1488,17 @@
         vertical-align: sub;
         font-size: 10px;
     }
-    a.add-butn {
-        font-size: 10px;
-        padding: 5px 6px;
-    }
     .pepl-info > h4 {
         width: auto;
     }
     .pepl-info {
         width: 82%;
     }
-    #frends a.add-butn.more-action {
-        right: 65px;
-    }
     .frnds .nav-tabs .nav-item > span {
         font-size: 11px;
     }
     .frnds .nav-tabs .nav-item {
         font-size: 14px;
-    }
-    #frends a.add-butn.more-action,
-    a.add-butn.more-action {
-        position: unset;
     }
     nav.breadcrumb {
         width: 47%;
@@ -1657,12 +1526,7 @@
     .more-branches {
         padding: 30px 20px 20px;
     }
-    .l-post .l-post-meta > h4 {
-        font-size: 18px;
-    }
-    .tags > a {
-        font-size: 13px;
-    }
+
     .commenter-photo {
         display: inline-block;
         text-align: center;
@@ -1735,9 +1599,7 @@
         width: 32.1%;
         margin-bottom: 4px;
     }
-    .friend-logo > span {
-        font-size: 170px;
-    }
+
     .frnds .nav-tabs .nav-item {
         font-size: 14px;
         margin-right: 15px;
@@ -1769,9 +1631,7 @@
         min-width: 48%;
         width: 48%;
     }
-    .nearby-contct > li {
-        padding: 10px;
-    }
+
     .pepl-info {
         width: 81%;
     }

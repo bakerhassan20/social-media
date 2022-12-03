@@ -75,12 +75,12 @@
 </div>
 
 
-			<div class="container-fluid">
+			<div class="container">
 				<div class="row merged">
 					<div class="col-lg-2 col-sm-3">
 						<div class="user-avatar">
 							<figure>
-								<img style="min-height:164px;min-width:169px" src="{{ asset('assets/Users_Img/'.$user->img)}}" alt="" id="output">
+								<img style="height:195px;width:185px"  src="{{ asset('assets/Users_Img/'.$user->img)}}" alt="" id="output">
 							</figure>
 						</div>
 					</div>
@@ -161,7 +161,7 @@
 									<div class="user-post">
 										<div class="friend-info">
 											<figure>
-												<img src="{{ asset('assets/Users_Img/' . $user->img) }}" alt="">
+												<img style="height:50px;width:50px" src="{{ asset('assets/Users_Img/' . $user->img) }}" alt="">
 											</figure>
 											<div class="friend-name">
 												<ins><a href="{{ route('user_profile',$user->id) }}" title="">{{ $user->name }}</a></ins>
@@ -172,7 +172,7 @@
 												<div class="we-video-info">
 													<ul>
 														<li>
-															<span class="comment" data-toggle="tooltip" title="Comments">
+															<span class="comment"title="Comments">
 																<i class="fa fa-comments-o"></i>
 														<ins>
                                                             @php
@@ -287,7 +287,7 @@
 
 												<li class="post-comment">
 													<div class="comet-avatar">
-														<img src="{{ asset('assets/Users_Img/'.Auth::user()->img)}}" alt="">
+														<img src="{{ asset('assets/Users_Img/'.Auth::user()->img)}}" alt=""style="height:40px;width:40px">
 													</div>
 													<div class="post-comt-box">
 														<form method="post" action="{{ route('comment.store') }}">
@@ -329,12 +329,7 @@
 
 							<div class="col-lg-3">
 								<aside class="sidebar static">
-									<div class="advertisment-box">
-										<h4 class="">advertisment</h4>
-										<figure>
-											<a href="#" title="Advertisment"><img src="images/resources/ad-widget.jpg" alt=""></a>
-										</figure>
-									</div>
+								
 
 									<div class="widget friend-list stick-widget">
 										<h4 class="widget-title">Friends</h4>

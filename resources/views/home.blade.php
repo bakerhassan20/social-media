@@ -46,7 +46,7 @@
                                     <li>
                                       <a href="{{ route('user_profile',$user->id) }}"title="">
                                         <figure>
-                                            <img src="{{ asset('assets/Users_Img/'.$user->img)}}"alt="">
+                                            <img src="{{ asset('assets/Users_Img/'.$user->img)}}"alt=""style="height:50px;width:50px">
                                         </figure>
                                         <div class="friend-meta">
                                           <h6>{{ $user->name }}</h6>
@@ -102,7 +102,7 @@
                         <div class="user-post">
                             <div class="friend-info">
                                 <figure>
-                                    <img src="{{ asset('assets/Users_Img/' .$post->users->img) }}"alt="">
+                                    <img src="{{ asset('assets/Users_Img/' .$post->users->img) }}"alt=""style="height:50px;width:50px">
                                 </figure>
                             <div class="friend-name">
                                 <ins>
@@ -117,7 +117,7 @@
             <div class="we-video-info">
                 <ul>
                     <li>
-					    <span class="comment" data-toggle="tooltip"title="Comments">
+					    <span class="comment"title="Comments">
 							<i class="fa fa-comments-o"></i>
 							<ins>
                             @php
@@ -247,7 +247,7 @@
             <h4 class="widget-title">Your page</h4>
         <div class="your-page">
         <figure>
-            <a href="#" title=""><img src="{{ asset('assets/Users_Img/' . Auth::user()->img) }}"></a>
+            <a href="#" title=""><img src="{{ asset('assets/Users_Img/' . Auth::user()->img) }}" style="height:60px;width:60px"></a>
         </figure>
             <div class="page-meta">
                 <a href="{{ route('profile') }}" title="" class="underline">My page</a>
@@ -283,7 +283,7 @@
                     <li>
                         <figure>
                             <a href="{{ route('user_profile',$user->id) }}">
-                            <img src="{{URL::asset('assets/Users_Img/' .$user->img) }}"alt="">
+                            <img src="{{URL::asset('assets/Users_Img/' .$user->img) }}"alt=""style="height:50px;width:50px">
                             <span class="status f-online"></span>
                         </figure>
                         <div class="friendz-meta">

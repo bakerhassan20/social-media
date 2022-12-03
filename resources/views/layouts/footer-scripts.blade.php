@@ -42,7 +42,7 @@ function dislikes(postId){
    $("#dislike[data-postId='" + postId +"']").find("i").toggleClass("fas fa-heart-broken far fa-heart");
        if($("#like[data-postId='" + postId +"']").find("i").attr('class') == 'fas fa-heart' ||$("#like[data-postId='" + postId +"']").find("i").attr('class') == 'fa-heart fas'){
         $("#like[data-postId='" + postId +"']").find("i").toggleClass("fas fa-heart far fa-heart");
-      // console.log('ggg');
+      
     }
    var postId = postId;
     $.ajax({
