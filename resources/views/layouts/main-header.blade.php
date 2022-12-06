@@ -14,11 +14,11 @@
 				   <i id="reNotififf"class="ti-bell"></i>
                    <span id="notifications_count">{{ auth()->user()->unreadNotifications->count() }}</span>
 				</a>
+                      <div id="unread">
+				<div class="dropdowns Notifications">
 
-				<div class="dropdowns Notifications"id="unreadNotifications">
 			        <span>{{ auth()->user()->unreadNotifications->count() }} New Notifications</span>
-
-				    <ul class="drops-menu">
+				    <ul class="drops-menu"id="drops-menu">
                     @foreach(auth()->user()->unreadNotifications as $notification)
  			            <li>
 							<a href="{{ route('user_profile',$notification->data['user_id']) }}" title="">
@@ -35,6 +35,7 @@
 					</ul>
 						<a href="{{ route('mark') }}" title="" class="more-mesg">clear all notification</a>
 				</div>
+                </div>
 			</li>
 
                 <li class="lang">

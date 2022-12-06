@@ -114,23 +114,19 @@
 								<aside class="sidebar static">
 
 										<div class="widget stick-widget">
-											<h4 class="widget-title">Edit info</h4>
+											<h4 class="widget-title">Info</h4>
 											<ul class="naves">
 												<li>
 													<i class="ti-info-alt"></i>
-													<a href="edit-profile-basic.html" title="">Basic info</a>
+													<a href="#" title="">Basic info</a>
 												</li>
 												<li>
 													<i class="ti-mouse-alt"></i>
-													<a href="edit-work-eductation.html" title="">Education & Work</a>
+													<a href="#" title="">Education & Work</a>
 												</li>
 												<li>
 													<i class="ti-heart"></i>
-													<a href="edit-interest.html" title="">My interests</a>
-												</li>
-												<li>
-													<i class="ti-settings"></i>
-													<a href="edit-account-setting.html" title="">account setting</a>
+													<a href="#" title="">interests</a>
 												</li>
 
 											</ul>
@@ -329,7 +325,7 @@
 
 							<div class="col-lg-3">
 								<aside class="sidebar static">
-								
+
 
 									<div class="widget friend-list stick-widget">
 										<h4 class="widget-title">Friends</h4>

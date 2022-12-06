@@ -4,7 +4,7 @@
 
 
 
-<script src="{{URL::asset('assets/js/main.min.js')}}"></script>
+ <script src="{{URL::asset('assets/js/main.min.js')}}"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
@@ -42,7 +42,7 @@ function dislikes(postId){
    $("#dislike[data-postId='" + postId +"']").find("i").toggleClass("fas fa-heart-broken far fa-heart");
        if($("#like[data-postId='" + postId +"']").find("i").attr('class') == 'fas fa-heart' ||$("#like[data-postId='" + postId +"']").find("i").attr('class') == 'fa-heart fas'){
         $("#like[data-postId='" + postId +"']").find("i").toggleClass("fas fa-heart far fa-heart");
-      
+
     }
    var postId = postId;
     $.ajax({
@@ -69,3 +69,14 @@ setInterval(scrollDown,10);
 </script>
 
 
+
+@vite('resources/js/app.js')
+
+    <script type="module">
+
+      Echo.private('App.Models.User.{{ Auth::user()->id }}')
+          .notification((notification) => {
+        $("#notifications_count").load(window.location.href + " #notifications_count");
+        $("#unread").load(window.location.href + " #unread");
+      });
+    </script>

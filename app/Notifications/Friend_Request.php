@@ -8,8 +8,10 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Illuminate\Notifications\Messages\BroadcastMessage;
 
-class Friend_Request extends Notification
+class Friend_Request extends Notification implements ShouldBroadcast
 {
     use Queueable;
     private $user;
@@ -21,6 +23,7 @@ class Friend_Request extends Notification
     public function __construct(User $user)
     {
         $this->user = $user;
+
     }
 
     /**
@@ -31,7 +34,7 @@ class Friend_Request extends Notification
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return ['database','broadcast'];
     }
 
     /**
@@ -57,6 +60,18 @@ class Friend_Request extends Notification
            'user_name' => Auth::user()->name,
            'user_img' =>Auth::user()->img,
         ];
+    }
+
+    public function toBroadcast($notifiable): BroadcastMessage
+    {
+        return new BroadcastMessage([
+           // 'message' => "$this->user (User $notifiable->name)"
+           'id'  => $this->user->id,
+           'titel' => 'Send Request',
+           'user_id' =>Auth::user()->id,
+           'user_name' => Auth::user()->name,
+           'user_img' =>Auth::user()->img,
+        ]);
     }
 
 }
